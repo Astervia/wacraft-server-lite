@@ -3,8 +3,6 @@ package server
 import (
 	"fmt"
 
-	campaign_router "github.com/Astervia/wacraft-server/src/campaign/router"
-	campaign_websocket "github.com/Astervia/wacraft-server/src/campaign/websocket-router"
 	"github.com/Astervia/wacraft-server/src/config/env"
 	contact_router "github.com/Astervia/wacraft-server/src/contact/router"
 	media_router "github.com/Astervia/wacraft-server/src/media/router"
@@ -36,7 +34,6 @@ func serve() {
 	contact_router.Route(app)
 	messaging_product_router.Route(app)
 	message_router.Route(app)
-	campaign_router.Route(app)
 	media_router.Route(app)
 	webhook_router.Route(app)
 	whatsapp_template_router.Route(app)
@@ -45,7 +42,6 @@ func serve() {
 	// Serving websockets
 	websocketRouter := websocket.Main(app)
 	message_websocket.Route(websocketRouter)
-	campaign_websocket.Route(websocketRouter)
 	status_websocket.Route(websocketRouter)
 
 	err := app.Listen(fmt.Sprintf(":%s", env.ServerPort))
