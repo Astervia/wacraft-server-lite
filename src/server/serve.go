@@ -3,11 +3,7 @@ package server
 import (
 	"fmt"
 
-	// PREMIUM STARTS
-	campaign_router "github.com/Astervia/wacraft-server/src/campaign/router"
-	campaign_websocket "github.com/Astervia/wacraft-server/src/campaign/websocket-router"
-	// PREMIUM ENDS
-	"github.com/Astervia/wacraft-server/src/config/env"
+"github.com/Astervia/wacraft-server/src/config/env"
 	contact_router "github.com/Astervia/wacraft-server/src/contact/router"
 	media_router "github.com/Astervia/wacraft-server/src/media/router"
 	message_router "github.com/Astervia/wacraft-server/src/message/router"
@@ -41,10 +37,7 @@ func serve() {
 	contact_router.Route(app)
 	messaging_product_router.Route(app)
 	message_router.Route(app)
-	// PREMIUM STARTS
-	campaign_router.Route(app)
-	// PREMIUM ENDS
-	media_router.Route(app)
+media_router.Route(app)
 	webhook_router.Route(app)
 	whatsapp_template_router.Route(app)
 	status_router.Route(app)
@@ -52,10 +45,7 @@ func serve() {
 	// Serving websockets
 	websocketRouter := websocket.Main(app)
 	message_websocket.Route(websocketRouter)
-	// PREMIUM STARTS
-	campaign_websocket.Route(websocketRouter)
-	// PREMIUM ENDS
-	status_websocket.Route(websocketRouter)
+status_websocket.Route(websocketRouter)
 
 	err := app.Listen(fmt.Sprintf(":%s", env.ServerPort))
 	pterm.DefaultLogger.Fatal(
