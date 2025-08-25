@@ -4,10 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	// PREMIUM STARTS
-	campaign_entity "github.com/Astervia/wacraft-core/src/campaign/entity"
-	// PREMIUM ENDS
-	contact_entity "github.com/Astervia/wacraft-core/src/contact/entity"
+contact_entity "github.com/Astervia/wacraft-core/src/contact/entity"
 	message_entity "github.com/Astervia/wacraft-core/src/message/entity"
 	messaging_product_entity "github.com/Astervia/wacraft-core/src/messaging-product/entity"
 	status_entity "github.com/Astervia/wacraft-core/src/status/entity"
@@ -35,12 +32,7 @@ func automaticMigrations() {
 		&messaging_product_entity.MessagingProduct{},
 		&messaging_product_entity.MessagingProductContact{},
 		&message_entity.Message{},
-		// PREMIUM STARTS
-		&campaign_entity.Campaign{},
-		&campaign_entity.CampaignMessage{},
-		&campaign_entity.CampaignMessageSendError{},
-		// PREMIUM ENDS
-		&webhook_entity.Webhook{},
+&webhook_entity.Webhook{},
 		&webhook_entity.WebhookLog{},
 		&status_entity.Status{},
 	)
