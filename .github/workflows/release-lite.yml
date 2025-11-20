@@ -6,7 +6,7 @@ on:
             - "v*.*.*"
 
 env:
-    IMAGE_NAME: astervia/wacraft-server
+    IMAGE_NAME: astervia/wacraft-server-lite
 
 jobs:
     build-and-push:
